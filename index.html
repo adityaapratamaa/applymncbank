@@ -6,7 +6,7 @@
   <title>Kartu Kredit MNC Bank | Apply Sekarang & Nikmati Promo Eksklusif</title>
   <meta name="description" content="Apply Kartu Kredit MNC Bank sekarang! Cicilan 0%, cashback menarik, promo XXI, Garuda, Blibli, dan lebih banyak lagi. Proses cepat dan mudah via WhatsApp.">
   <meta name="keywords" content="kartu kredit MNC bank, apply kartu kredit, promo kartu kredit, cicilan 0 persen, MotionBank">
-  <link rel="icon" href="https://mncbank.co.id/image/mnc_logo.png">
+  <link rel="icon" href="mnc_logo.png">
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -16,10 +16,7 @@
   <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
-  <!-- Main CSS -->
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Viewport Height Fix (BEFORE render — prevents mobile jump) -->
+  <!-- Viewport Height Fix -->
   <script>
     (function(){
       function setVH(){
@@ -30,6 +27,550 @@
       window.addEventListener('orientationchange', function(){ setTimeout(setVH, 150); });
     })();
   </script>
+
+  <style>
+/* ============================================================
+   MNC BANK CREDIT CARD LANDING PAGE — ENHANCED v2
+   Design: Luxury Gold / Deep Navy — Premium Banking
+   ============================================================ */
+
+:root {
+  --gold:          #C9A42A;
+  --gold-light:    #E8C84A;
+  --gold-dark:     #A07B1A;
+  --gold-shine:    #F5D77A;
+  --navy:          #0A0E1A;
+  --navy-2:        #0D1426;
+  --navy-3:        #111827;
+  --navy-card:     #141C2E;
+  --navy-border:   #1E2A45;
+  --white:         #FFFFFF;
+  --text-main:     #F0F4FF;
+  --text-muted:    #8896B3;
+  --text-light:    #B8C5E0;
+  --green-wa:      #25D366;
+  --green-wa-dark: #128C7E;
+
+  --ff-display: 'Playfair Display', Georgia, serif;
+  --ff-body:    'Plus Jakarta Sans', sans-serif;
+
+  --nav-h:    70px;
+  --radius:   14px;
+  --radius-lg:20px;
+  --radius-xl:28px;
+  --shadow:   0 8px 32px rgba(0,0,0,0.45);
+  --shadow-gold: 0 0 30px rgba(201,164,42,0.25);
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: var(--ff-body);
+  background: var(--navy);
+  color: var(--text-main);
+  line-height: 1.7;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; height: auto; display: block; }
+a  { text-decoration: none; color: inherit; }
+ul { list-style: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; }
+
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+.section { padding: 90px 0; position: relative; }
+
+/* ── SCROLL PROGRESS ── */
+.scroll-progress {
+  position: fixed; top: 0; left: 0; height: 3px; width: 0%;
+  background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-shine));
+  z-index: 9999; transition: width 0.1s linear;
+}
+
+/* ── PRELOADER ── */
+.preloader {
+  position: fixed; inset: 0; background: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+  z-index: 10000; transition: opacity 0.5s ease;
+}
+.preloader.hidden { opacity: 0; pointer-events: none; }
+.preloader-inner { text-align: center; display: flex; flex-direction: column; align-items: center; gap: 20px; }
+.preloader-brand { width: 160px; }
+.preloader-ring {
+  width: 52px; height: 52px;
+  border: 3px solid rgba(201,164,42,0.15);
+  border-top-color: var(--gold);
+  border-radius: 50%;
+  animation: spin 0.9s linear infinite;
+}
+.preloader-tagline { color: var(--text-muted); font-size: 0.85rem; letter-spacing: 0.08em; }
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ── NAVBAR ── */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; height: var(--nav-h);
+  z-index: 1000; transition: background var(--transition), box-shadow var(--transition);
+}
+.navbar.scrolled {
+  background: rgba(10,14,26,0.97);
+  backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 2px 30px rgba(0,0,0,0.5);
+  border-bottom: 1px solid var(--navy-border);
+}
+.nav-inner { height: 100%; display: flex; align-items: center; gap: 32px; }
+.nav-logo { display: flex; align-items: center; flex-shrink: 0; }
+.nav-logo-img { height: 38px; width: auto; }
+.nav-links { display: flex; gap: 28px; margin-left: auto; }
+.nav-links a {
+  font-size: 0.9rem; font-weight: 500; color: var(--text-light);
+  letter-spacing: 0.02em; transition: color var(--transition);
+  position: relative;
+}
+.nav-links a::after {
+  content: ''; position: absolute; bottom: -4px; left: 0;
+  width: 0; height: 2px; background: var(--gold);
+  transition: width var(--transition);
+}
+.nav-links a:hover { color: var(--gold-light); }
+.nav-links a:hover::after { width: 100%; }
+.btn-wa-nav {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--green-wa); color: #fff;
+  padding: 10px 20px; border-radius: 50px;
+  font-size: 0.875rem; font-weight: 600;
+  transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  white-space: nowrap; flex-shrink: 0;
+}
+.btn-wa-nav:hover { background: var(--green-wa-dark); transform: translateY(-2px); box-shadow: 0 8px 24px rgba(37,211,102,0.3); }
+.hamburger { display: none; flex-direction: column; gap: 5px; padding: 8px; margin-left: auto; flex-shrink: 0; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--text-main); border-radius: 2px; transition: all var(--transition); }
+.hamburger.active span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.hamburger.active span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+.hamburger.active span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+/* ── MOBILE MENU ── */
+.mobile-menu {
+  position: fixed; top: 0; right: -100%;
+  width: min(320px, 90vw); height: 100%;
+  background: var(--navy-card); border-left: 1px solid var(--navy-border);
+  z-index: 1100; padding: 0; display: flex; flex-direction: column;
+  transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1); overflow-y: auto;
+}
+.mobile-menu.open { right: 0; }
+.mobile-menu-header { display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; border-bottom: 1px solid var(--navy-border); }
+.mobile-logo { height: 32px; }
+.mobile-close { width: 34px; height: 34px; border-radius: 50%; background: var(--navy-border); color: var(--text-main); font-size: 16px; display: flex; align-items: center; justify-content: center; transition: background var(--transition); }
+.mobile-close:hover { background: var(--gold-dark); }
+.mobile-nav { display: flex; flex-direction: column; padding: 16px; gap: 4px; flex: 1; }
+.mobile-nav a { display: flex; align-items: center; gap: 12px; padding: 14px 16px; border-radius: var(--radius); font-weight: 500; color: var(--text-light); transition: background var(--transition), color var(--transition); font-size: 0.95rem; }
+.mobile-nav a:hover { background: var(--navy-border); color: var(--gold-light); }
+.mobile-wa-btn { margin: 16px; display: flex; align-items: center; justify-content: center; gap: 10px; background: var(--green-wa); color: #fff; padding: 16px; border-radius: var(--radius); font-weight: 700; font-size: 1rem; transition: background var(--transition); }
+.mobile-wa-btn:hover { background: var(--green-wa-dark); }
+.mobile-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); z-index: 1050; backdrop-filter: blur(4px); }
+.mobile-overlay.visible { display: block; }
+
+/* ── BUTTONS ── */
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 10px;
+  background: linear-gradient(135deg, var(--gold) 0%, var(--gold-light) 50%, var(--gold) 100%);
+  background-size: 200% 100%; color: var(--navy);
+  padding: 14px 28px; border-radius: 50px;
+  font-weight: 700; font-size: 0.9rem; letter-spacing: 0.03em;
+  transition: background-position var(--transition), transform var(--transition), box-shadow var(--transition);
+  cursor: pointer; white-space: nowrap;
+}
+.btn-primary:hover { background-position: right center; transform: translateY(-2px); box-shadow: 0 10px 30px rgba(201,164,42,0.4); }
+.btn-xl { padding: 17px 36px; font-size: 1rem; }
+.btn-ghost {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: var(--text-light); border: 1px solid var(--navy-border);
+  padding: 14px 28px; border-radius: 50px; font-weight: 500; font-size: 0.9rem;
+  transition: border-color var(--transition), color var(--transition), transform var(--transition);
+}
+.btn-ghost:hover { border-color: var(--gold); color: var(--gold-light); transform: translateY(-2px); }
+
+/* ── GOLD TEXT ── */
+.gold-text {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold-light), var(--gold-shine));
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+}
+
+/* ── SECTION HEAD ── */
+.section-head { text-align: center; margin-bottom: 60px; }
+.section-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: rgba(201,164,42,0.12); border: 1px solid rgba(201,164,42,0.3);
+  color: var(--gold-light); padding: 6px 16px; border-radius: 50px;
+  font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase; margin-bottom: 16px;
+}
+.section-title { font-family: var(--ff-display); font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+.section-desc { max-width: 600px; margin: 0 auto; color: var(--text-muted); font-size: 1rem; }
+
+/* ── SCROLL REVEAL (FIXED) ── */
+.reveal-item {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+.reveal-item.is-visible { opacity: 1; transform: translateY(0); }
+.reveal-delay  { transition-delay: 0.15s; }
+.reveal-d1     { transition-delay: 0.1s; }
+.reveal-d2     { transition-delay: 0.2s; }
+.reveal-d3     { transition-delay: 0.3s; }
+.reveal-d4     { transition-delay: 0.4s; }
+.reveal-d5     { transition-delay: 0.5s; }
+
+/* ── HERO ── */
+.hero {
+  position: relative; min-height: calc(var(--vh, 1vh) * 100); min-height: 100dvh;
+  display: flex; align-items: center; overflow: hidden; padding-top: var(--nav-h);
+}
+.hero-particles { position: absolute; inset: 0; z-index: 1; }
+.hero-slides { position: absolute; inset: 0; z-index: 0; }
+.hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.4s ease; }
+.hero-slide.active { opacity: 1; }
+.hero-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(10,14,26,0.92) 0%, rgba(10,14,26,0.78) 40%, rgba(10,14,26,0.60) 100%);
+  z-index: 2;
+}
+.hero-content { position: relative; z-index: 10; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; padding: 40px 20px; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; background: rgba(201,164,42,0.1); border: 1px solid rgba(201,164,42,0.35); color: var(--gold-light); padding: 7px 16px; border-radius: 50px; font-size: 0.8rem; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 20px; }
+.badge-dot { width: 8px; height: 8px; background: var(--green-wa); border-radius: 50%; box-shadow: 0 0 8px var(--green-wa); animation: blink 1.4s ease-in-out infinite; }
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.3} }
+.hero-left h1 { font-family: var(--ff-display); font-size: clamp(2.2rem, 4.5vw, 3.8rem); font-weight: 900; line-height: 1.12; margin-bottom: 20px; }
+.hero-sub { font-size: clamp(1.4rem, 2.5vw, 2rem); font-family: var(--ff-body); font-weight: 300; color: var(--text-light); }
+.hero-desc { font-size: 1.05rem; color: var(--text-muted); margin-bottom: 32px; max-width: 500px; line-height: 1.8; }
+.hero-desc strong { color: var(--gold-light); }
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
+.hero-stats { display: flex; gap: 0; flex-wrap: wrap; row-gap: 16px; }
+.hero-stat { display: flex; flex-direction: column; padding: 0 24px; }
+.hero-stat:first-child { padding-left: 0; }
+.stat-sep { width: 1px; background: var(--navy-border); align-self: stretch; }
+.stat-num { font-family: var(--ff-display); font-size: 2rem; font-weight: 700; color: var(--gold-light); line-height: 1; }
+.stat-suffix { font-size: 1rem; font-weight: 600; color: var(--gold); margin-left: 2px; }
+.stat-label { font-size: 0.75rem; color: var(--text-muted); margin-top: 4px; white-space: nowrap; }
+
+/* Hero Card — now using real card images */
+.hero-right { display: flex; justify-content: center; align-items: center; }
+.card-3d-wrapper { position: relative; width: 400px; max-width: 100%; }
+.card-3d { perspective: 1200px; }
+.card-img-hero {
+  width: 100%;
+  border-radius: 20px;
+  box-shadow: 0 30px 80px rgba(0,0,0,0.65), 0 0 60px rgba(201,164,42,0.18);
+  animation: cardFloat 4s ease-in-out infinite;
+  display: block;
+}
+@keyframes cardFloat {
+  0%,100% { transform: translateY(0) rotateX(2deg) rotateY(-4deg); }
+  50%      { transform: translateY(-14px) rotateX(-2deg) rotateY(4deg); }
+}
+
+/* Floating badges */
+.float-badge {
+  position: absolute; background: rgba(13,20,38,0.92);
+  border: 1px solid rgba(201,164,42,0.35); backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px); border-radius: 50px; padding: 10px 16px;
+  display: flex; align-items: center; gap: 8px; font-size: 0.82rem; font-weight: 600;
+  color: var(--text-main); white-space: nowrap; box-shadow: var(--shadow);
+}
+.badge-icon { font-size: 1.1rem; }
+.float-1 { top: -20px; left: -30px; animation: floatA 3.5s ease-in-out infinite; }
+.float-2 { bottom: 40px; left: -40px; animation: floatB 4s ease-in-out infinite 0.5s; }
+.float-3 { top: 40px; right: -40px; animation: floatA 3.8s ease-in-out infinite 1s; }
+@keyframes floatA { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-10px)} }
+@keyframes floatB { 0%,100%{transform:translateY(0)} 50%{transform:translateY(10px)} }
+
+.hero-dots { position: absolute; bottom: 32px; left: 50%; transform: translateX(-50%); display: flex; gap: 10px; z-index: 10; }
+.hero-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,0.3); cursor: pointer; transition: background var(--transition), transform var(--transition); }
+.hero-dot.active { background: var(--gold); transform: scale(1.4); }
+
+.scroll-cue { position: absolute; bottom: 32px; right: 40px; display: flex; flex-direction: column; align-items: center; gap: 8px; z-index: 10; opacity: 0.5; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; }
+.scroll-mouse { width: 22px; height: 34px; border: 2px solid rgba(255,255,255,0.4); border-radius: 12px; display: flex; justify-content: center; padding-top: 6px; }
+.scroll-wheel { width: 3px; height: 6px; background: var(--gold); border-radius: 3px; animation: scrollDown 1.8s ease-in-out infinite; }
+@keyframes scrollDown { 0%,100%{transform:translateY(0);opacity:1} 80%{transform:translateY(8px);opacity:0} }
+
+/* ── TICKER ── */
+.ticker-wrap { background: linear-gradient(90deg, var(--gold-dark), var(--gold), var(--gold-dark)); overflow: hidden; padding: 12px 0; position: relative; z-index: 5; }
+.ticker-track { display: inline-flex; gap: 0; white-space: nowrap; animation: tickerScroll 40s linear infinite; }
+.ticker-track:hover { animation-play-state: paused; }
+.ticker-track span { font-size: 0.82rem; font-weight: 700; color: var(--navy); padding: 0 16px; letter-spacing: 0.03em; }
+.ticker-sep { color: var(--navy-2) !important; }
+@keyframes tickerScroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ── CARDS SECTION ── */
+.cards-section { background: var(--navy-2); }
+.cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.card-item-inner {
+  background: var(--navy-card); border: 1px solid var(--navy-border);
+  border-radius: var(--radius-lg); overflow: hidden;
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+  position: relative; height: 100%; display: flex; flex-direction: column;
+}
+.card-item-inner:hover { transform: translateY(-6px); box-shadow: var(--shadow-gold), var(--shadow); border-color: rgba(201,164,42,0.3); }
+.card-item-inner.featured { border-color: var(--gold); box-shadow: 0 0 40px rgba(201,164,42,0.2); }
+.featured-tag { position: absolute; top: 16px; right: 16px; background: var(--gold); color: var(--navy); font-size: 0.72rem; font-weight: 700; padding: 4px 12px; border-radius: 50px; z-index: 5; letter-spacing: 0.05em; }
+
+/* Card image top section */
+.card-item-top {
+  padding: 24px; aspect-ratio: 1.8 / 1;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; overflow: hidden;
+}
+.card-item-top.gold     { background: linear-gradient(135deg, #1C1400, #2E2100); }
+.card-item-top.platinum { background: linear-gradient(135deg, #0A0A14, #14142A); }
+.card-item-top.titanium { background: linear-gradient(135deg, #0E1520, #1A2030); }
+.card-item-top.icon     { background: linear-gradient(135deg, #0A1520, #001A35); }
+.card-item-top.kai      { background: linear-gradient(135deg, #100A1A, #1A0A25); }
+.card-item-top.citilink { background: linear-gradient(135deg, #001A10, #002510); }
+
+/* Real card images */
+.card-img-real {
+  width: 88%; max-width: 260px;
+  border-radius: 10px;
+  box-shadow: 0 10px 36px rgba(0,0,0,0.6);
+  transition: transform var(--transition);
+  object-fit: contain;
+}
+.card-item-inner:hover .card-img-real { transform: scale(1.05) rotateZ(1deg); }
+
+.card-item-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+.card-item-body h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 8px; color: var(--text-main); }
+.card-item-body p { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 14px; line-height: 1.6; flex: 1; }
+.card-perks { margin-bottom: 16px; display: flex; flex-direction: column; gap: 5px; }
+.card-perks li { font-size: 0.8rem; color: var(--text-light); }
+.btn-card-apply {
+  display: block; text-align: center;
+  background: linear-gradient(135deg, rgba(201,164,42,0.15), rgba(201,164,42,0.08));
+  border: 1px solid rgba(201,164,42,0.35); color: var(--gold-light);
+  padding: 11px; border-radius: var(--radius); font-size: 0.85rem; font-weight: 600;
+  transition: background var(--transition), transform var(--transition); margin-top: auto;
+}
+.btn-card-apply:hover { background: linear-gradient(135deg, rgba(201,164,42,0.3), rgba(201,164,42,0.15)); transform: translateY(-2px); }
+.btn-card-apply.featured-btn { background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--navy); border: none; }
+.btn-card-apply.featured-btn:hover { box-shadow: 0 8px 24px rgba(201,164,42,0.4); }
+
+/* ── PROMO SECTION ── */
+.promo-section { background: var(--navy-3); overflow: hidden; }
+.promo-bg-pattern { position: absolute; inset: 0; background-image: radial-gradient(circle at 20% 50%, rgba(201,164,42,0.04) 0%, transparent 50%), radial-gradient(circle at 80% 50%, rgba(201,164,42,0.04) 0%, transparent 50%); pointer-events: none; }
+.promo-card { background: var(--navy-card); border: 1px solid var(--navy-border); border-radius: var(--radius-lg); overflow: hidden; height: 100%; display: flex; flex-direction: column; transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition); }
+.promo-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-gold), var(--shadow); border-color: rgba(201,164,42,0.25); }
+.promo-img-wrap { position: relative; aspect-ratio: 16/9; overflow: hidden; }
+.promo-img-wrap img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; }
+.promo-card:hover .promo-img-wrap img { transform: scale(1.06); }
+.promo-category { position: absolute; top: 12px; left: 12px; background: rgba(10,14,26,0.85); backdrop-filter: blur(8px); border: 1px solid var(--navy-border); padding: 5px 12px; border-radius: 50px; font-size: 0.75rem; font-weight: 600; }
+.promo-body { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+.promo-body h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+.promo-body p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; flex: 1; margin-bottom: 12px; }
+.promo-body p strong { color: var(--gold-light); }
+.promo-tag { display: inline-block; background: rgba(201,164,42,0.1); border: 1px solid rgba(201,164,42,0.2); color: var(--gold); font-size: 0.72rem; font-weight: 600; padding: 4px 12px; border-radius: 50px; margin-bottom: 14px; }
+.promo-btn { display: block; text-align: center; background: linear-gradient(135deg, var(--gold), var(--gold-light)); color: var(--navy); padding: 11px; border-radius: var(--radius); font-size: 0.85rem; font-weight: 700; transition: transform var(--transition), box-shadow var(--transition); margin-top: auto; }
+.promo-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(201,164,42,0.3); }
+.promo-cta-row { text-align: center; margin-top: 50px; display: flex; flex-direction: column; align-items: center; gap: 16px; }
+.promo-cta-row p { color: var(--text-muted); font-size: 1rem; }
+
+/* ── BENEFIT SECTION ── */
+.benefit-section { background: var(--navy-2); position: relative; }
+.benefit-section::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 1px; height: 100%; background: linear-gradient(180deg, transparent, var(--gold-dark), transparent); opacity: 0.3; }
+.benefit-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.benefit-card { background: var(--navy-card); border: 1px solid var(--navy-border); border-radius: var(--radius-lg); padding: 28px 24px; text-align: center; transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition); }
+.benefit-card:hover { transform: translateY(-6px); border-color: rgba(201,164,42,0.3); box-shadow: var(--shadow-gold); }
+.benefit-icon { font-size: 2.4rem; margin-bottom: 14px; display: block; }
+.benefit-card h3 { font-size: 0.95rem; font-weight: 700; margin-bottom: 8px; }
+.benefit-card p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.6; }
+
+/* ── STEPS SECTION ── */
+.steps-section { background: var(--navy-3); }
+.steps-wrap { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+.steps-list { display: flex; flex-direction: column; gap: 0; }
+.step-item { display: flex; gap: 20px; padding: 24px 0; border-bottom: 1px solid var(--navy-border); }
+.step-item:last-child { border-bottom: none; }
+.step-num { font-family: var(--ff-display); font-size: 2.5rem; font-weight: 900; color: rgba(201,164,42,0.15); line-height: 1; flex-shrink: 0; width: 60px; transition: color var(--transition); }
+.step-item:hover .step-num { color: rgba(201,164,42,0.4); }
+.step-body h4 { font-size: 1rem; font-weight: 700; margin-bottom: 6px; }
+.step-body p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
+
+.req-box { background: var(--navy-card); border: 1px solid var(--navy-border); border-radius: var(--radius-xl); padding: 32px; }
+.req-box h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 20px; }
+.req-tabs { display: flex; gap: 8px; margin-bottom: 24px; background: var(--navy-2); padding: 6px; border-radius: var(--radius); }
+.req-tab { flex: 1; padding: 10px; border-radius: 8px; font-size: 0.82rem; font-weight: 600; color: var(--text-muted); text-align: center; transition: background var(--transition), color var(--transition); background: transparent; }
+.req-tab.active { background: var(--gold); color: var(--navy); }
+.req-tab:hover:not(.active) { background: var(--navy-border); color: var(--text-main); }
+.req-content { display: none; }
+.req-content.active { display: block; }
+.req-list { display: flex; flex-direction: column; gap: 10px; }
+.req-list li { font-size: 0.875rem; color: var(--text-light); display: flex; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+.req-list li:last-child { border-bottom: none; }
+.req-note { display: flex; gap: 10px; align-items: flex-start; margin-top: 20px; padding: 14px; background: rgba(201,164,42,0.08); border: 1px solid rgba(201,164,42,0.2); border-radius: var(--radius); font-size: 0.82rem; color: var(--gold-light); line-height: 1.5; }
+
+/* ── TESTIMONIALS ── */
+.testi-section { background: var(--navy-2); }
+.testi-card { background: var(--navy-card); border: 1px solid var(--navy-border); border-radius: var(--radius-lg); padding: 28px; height: 100%; display: flex; flex-direction: column; gap: 16px; transition: transform var(--transition), border-color var(--transition); }
+.testi-card:hover { transform: translateY(-4px); border-color: rgba(201,164,42,0.25); }
+.testi-stars { color: var(--gold); font-size: 1rem; letter-spacing: 2px; }
+.testi-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.7; font-style: italic; flex: 1; }
+.testi-author { display: flex; align-items: center; gap: 14px; margin-top: auto; border-top: 1px solid var(--navy-border); padding-top: 16px; }
+.testi-avatar { width: 44px; height: 44px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-dark), var(--gold)); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem; color: var(--navy); flex-shrink: 0; }
+.testi-author strong { font-size: 0.9rem; display: block; }
+.testi-author small { font-size: 0.75rem; color: var(--text-muted); }
+
+/* ── FAQ ── */
+.faq-section { background: var(--navy-3); }
+.faq-wrap { display: grid; grid-template-columns: 1fr 1.6fr; gap: 60px; align-items: start; }
+.faq-img-wrap { margin-top: 32px; border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); aspect-ratio: 4/3; }
+.faq-img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+.faq-item { border-bottom: 1px solid var(--navy-border); }
+.faq-btn { width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 20px 0; text-align: left; color: var(--text-main); font-size: 0.95rem; font-weight: 500; transition: color var(--transition); }
+.faq-btn:hover { color: var(--gold-light); }
+.faq-arrow { font-size: 0.75rem; color: var(--text-muted); flex-shrink: 0; transition: transform var(--transition), color var(--transition); }
+.faq-item.open .faq-arrow { color: var(--gold); }
+.faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding var(--transition); }
+.faq-item.open .faq-answer { max-height: 300px; padding-bottom: 16px; }
+.faq-answer p { font-size: 0.875rem; color: var(--text-muted); line-height: 1.8; }
+.faq-answer p strong { color: var(--gold-light); }
+
+/* ── CTA SECTION ── */
+.cta-section { background: linear-gradient(135deg, var(--navy-2), var(--navy)); padding: 100px 0; position: relative; overflow: hidden; }
+.cta-bg-anim { position: absolute; inset: 0; background: radial-gradient(ellipse at center, rgba(201,164,42,0.08) 0%, transparent 70%); animation: ctaPulse 4s ease-in-out infinite; }
+@keyframes ctaPulse { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.cta-inner { position: relative; z-index: 2; display: flex; align-items: center; justify-content: space-between; gap: 40px; flex-wrap: wrap; }
+.cta-text h2 { font-family: var(--ff-display); font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700; line-height: 1.2; margin-bottom: 12px; }
+.cta-text p { color: var(--text-muted); font-size: 1rem; max-width: 500px; }
+.cta-actions { display: flex; flex-direction: column; align-items: center; gap: 16px; flex-shrink: 0; }
+.cta-wa-btn { background: linear-gradient(135deg, var(--green-wa), #20B858) !important; box-shadow: 0 12px 40px rgba(37,211,102,0.35); color: #fff !important; }
+.cta-wa-btn:hover { box-shadow: 0 16px 50px rgba(37,211,102,0.5) !important; }
+.cta-phone { display: flex; flex-direction: column; align-items: center; gap: 2px; }
+.cta-phone span { font-weight: 700; font-size: 1rem; }
+.cta-phone small { font-size: 0.75rem; color: var(--text-muted); }
+
+/* ── BANNER SECTION ── */
+.banner-section { background: var(--navy); padding: 40px 0; overflow: hidden; }
+.banner-img-wrap { border-radius: var(--radius-lg); overflow: hidden; box-shadow: var(--shadow); }
+.banner-img-wrap img { width: 100%; object-fit: cover; display: block; }
+
+/* ── FOOTER ── */
+.footer { background: #050810; padding: 70px 0 0; }
+.footer-inner { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; padding-bottom: 50px; border-bottom: 1px solid var(--navy-border); }
+.footer-brand p { font-size: 0.82rem; color: var(--text-muted); line-height: 1.8; margin-top: 12px; }
+.footer-logo { height: 36px; margin-bottom: 12px; }
+.footer-social { display: flex; gap: 12px; margin-top: 16px; }
+.footer-social a { width: 38px; height: 38px; background: var(--navy-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--text-muted); transition: background var(--transition), color var(--transition); }
+.footer-social a:hover { background: var(--green-wa); color: #fff; }
+.footer-links h4 { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 16px; }
+.footer-links a { display: block; font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px; transition: color var(--transition); }
+.footer-links a:hover { color: var(--gold-light); }
+.footer-bottom { padding: 24px 20px; text-align: center; }
+.footer-bottom p { font-size: 0.8rem; color: var(--text-muted); }
+
+/* ── FLOATING WA BUTTON ── */
+.fab-wa {
+  position: fixed; bottom: 28px; right: 24px; z-index: 900;
+  background: var(--green-wa); color: #fff; width: 60px; height: 60px;
+  border-radius: 50px; display: flex; align-items: center; justify-content: center;
+  gap: 0; box-shadow: 0 8px 32px rgba(37,211,102,0.5);
+  transition: width var(--transition), border-radius var(--transition), transform var(--transition), box-shadow var(--transition), gap var(--transition);
+  overflow: hidden; white-space: nowrap; opacity: 0;
+  transform: translateY(20px) scale(0.9); pointer-events: none;
+}
+.fab-wa.visible { opacity: 1; transform: translateY(0) scale(1); pointer-events: auto; }
+.fab-wa:hover { width: auto; padding: 0 22px; gap: 10px; box-shadow: 0 12px 40px rgba(37,211,102,0.65); transform: translateY(-3px) scale(1.02); background: var(--green-wa-dark); }
+.fab-wa svg { flex-shrink: 0; }
+.fab-label { font-size: 0.875rem; font-weight: 700; max-width: 0; overflow: hidden; transition: max-width 0.3s ease; }
+.fab-wa:hover .fab-label { max-width: 200px; }
+.fab-pulse { position: absolute; inset: 0; border-radius: inherit; background: var(--green-wa); animation: fabPulse 2.5s ease-out infinite; z-index: -1; }
+@keyframes fabPulse { 0%{transform:scale(1);opacity:0.6} 100%{transform:scale(1.7);opacity:0} }
+
+/* ── SWIPER ── */
+.swiper { padding-bottom: 44px !important; }
+.swiper-pagination-bullet { background: var(--navy-border) !important; opacity: 1 !important; }
+.swiper-pagination-bullet-active { background: var(--gold) !important; transform: scale(1.4); }
+
+/* ── COUNTER ANIMATION ── */
+@keyframes countUp { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ── CARD COMPARE TOOLTIP ── */
+.card-compare-hint {
+  position: absolute; top: 8px; left: 16px; background: rgba(201,164,42,0.15);
+  border: 1px solid rgba(201,164,42,0.3); color: var(--gold-light);
+  font-size: 0.68rem; font-weight: 600; padding: 3px 10px; border-radius: 50px; z-index: 5;
+  opacity: 0; pointer-events: none; transition: opacity var(--transition);
+}
+.card-item-inner:hover .card-compare-hint { opacity: 1; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 1100px) {
+  .cards-grid   { grid-template-columns: repeat(2, 1fr); }
+  .benefit-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .btn-wa-nav { display: none; }
+  .hamburger  { display: flex; }
+  .hero-content { grid-template-columns: 1fr; gap: 40px; text-align: center; padding: 30px 20px 60px; }
+  .hero-left h1 { font-size: clamp(1.8rem, 6vw, 2.8rem); }
+  .hero-desc { max-width: 100%; }
+  .hero-actions { justify-content: center; }
+  .hero-stats { justify-content: center; }
+  .hero-stat { padding: 0 14px; }
+  .hero-right { order: -1; }
+  .card-3d-wrapper { width: 300px; }
+  .float-1 { left: -10px; }
+  .float-2 { left: -10px; }
+  .float-3 { right: -10px; }
+  .steps-wrap  { grid-template-columns: 1fr; gap: 40px; }
+  .faq-wrap    { grid-template-columns: 1fr; gap: 40px; }
+  .faq-img-wrap { display: none; }
+  .faq-left { text-align: center; }
+  .cta-inner { flex-direction: column; text-align: center; }
+  .cta-text p { margin: 0 auto; }
+}
+
+@media (max-width: 700px) {
+  :root { --nav-h: 60px; }
+  .section { padding: 60px 0; }
+  .cards-grid { grid-template-columns: 1fr; }
+  .benefit-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+  .hero-stats { gap: 0; display: grid; grid-template-columns: repeat(2, 1fr); }
+  .stat-sep { display: none; }
+  .hero-stat { padding: 12px; border: 1px solid var(--navy-border); border-radius: var(--radius); background: rgba(255,255,255,0.02); text-align: center; align-items: center; }
+  .hero-stat:first-child { padding: 12px; }
+  .req-box { padding: 20px; }
+  .footer-inner { grid-template-columns: 1fr 1fr; gap: 30px; }
+  .footer-brand { grid-column: 1 / -1; }
+  .cta-section { padding: 70px 0; }
+  .float-badge { display: none; }
+}
+
+@media (max-width: 480px) {
+  .section { padding: 50px 0; }
+  .section-head { margin-bottom: 40px; }
+  .benefit-grid { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; align-items: center; }
+  .btn-ghost { display: none; }
+  .footer-inner { grid-template-columns: 1fr; }
+  .req-tabs { flex-wrap: wrap; }
+  .ticker-wrap { display: none; }
+  .card-3d-wrapper { width: 260px; }
+  .fab-wa { bottom: 20px; right: 16px; width: 54px; height: 54px; }
+  .hero { min-height: calc(var(--vh, 1vh) * 100); padding-bottom: 60px; }
+}
+
+@supports (height: 100dvh) { .hero { min-height: 100dvh; } }
+
+/* ── WHATSAPP SVG ICON UTILITY ── */
+.wa-svg { display:inline-block; vertical-align:middle; }
+</style>
 </head>
 <body>
 
@@ -40,7 +581,7 @@
 <div class="preloader" id="preloader">
   <div class="preloader-inner">
     <div class="preloader-logo">
-      <img src="https://mncbank.co.id/image/mnc_logo.png" alt="MNC Bank" class="preloader-brand">
+      <img src="mnc_logo.png" alt="MNC Bank" class="preloader-brand">
     </div>
     <div class="preloader-ring"></div>
     <p class="preloader-tagline">Memuat Pengalaman Terbaik…</p>
@@ -51,7 +592,7 @@
 <nav class="navbar" id="navbar">
   <div class="container nav-inner">
     <a href="#home" class="nav-logo">
-      <img src="https://mncbank.co.id/image/mnc_logo.png" alt="MNC Bank Logo" class="nav-logo-img">
+      <img src="mnc_logo.png" alt="MNC Bank Logo" class="nav-logo-img">
     </a>
     <div class="nav-links">
       <a href="#kartu">Jenis Kartu</a>
@@ -60,10 +601,8 @@
       <a href="#syarat">Syarat</a>
       <a href="#faq">FAQ</a>
     </div>
-    <a href="https://wa.me/62895635754671?text=Halo%2C%20saya%20ingin%20apply%20Kartu%20Kredit%20MNC%20Bank%20🏦" class="btn-wa-nav" target="_blank" rel="noopener">
-      <span class="wa-icon">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.514 5.831L0 24l6.332-1.484A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 01-5.012-1.371l-.36-.214-3.759.881.918-3.661-.234-.376A9.784 9.784 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.422 0 9.818 4.396 9.818 9.818 0 5.422-4.396 9.818-9.818 9.818z"/></svg>
-      </span>
+    <a href="https://wa.me/6289502384651?text=Halo%2C%20saya%20ingin%20apply%20Kartu%20Kredit%20MNC%20Bank%20🏦" class="btn-wa-nav" target="_blank" rel="noopener">
+      <span class="wa-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.514 5.831L0 24l6.332-1.484A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 01-5.012-1.371l-.36-.214-3.759.881.918-3.661-.234-.376A9.784 9.784 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.422 0 9.818 4.396 9.818 9.818 0 5.422-4.396 9.818-9.818 9.818z"/></svg></span>
       Apply Sekarang
     </a>
     <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
@@ -75,7 +614,7 @@
 <!-- ============ MOBILE MENU ============ -->
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-header">
-    <img src="https://mncbank.co.id/image/mnc_logo.png" alt="MNC Bank" class="mobile-logo">
+    <img src="mnc_logo.png" alt="MNC Bank" class="mobile-logo">
     <button class="mobile-close" onclick="closeMenu()">✕</button>
   </div>
   <nav class="mobile-nav">
@@ -85,7 +624,7 @@
     <a href="#syarat"     onclick="closeMenu()">📋 Syarat Apply</a>
     <a href="#faq"        onclick="closeMenu()">❓ FAQ</a>
   </nav>
-  <a href="https://wa.me/62895635754671?text=Halo%2C%20saya%20ingin%20apply%20Kartu%20Kredit%20MNC%20Bank%20🏦" target="_blank" rel="noopener" class="mobile-wa-btn">
+  <a href="https://wa.me/6289502384651?text=Halo%2C%20saya%20ingin%20apply%20Kartu%20Kredit%20MNC%20Bank%20🏦" target="_blank" rel="noopener" class="mobile-wa-btn">
     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.514 5.831L0 24l6.332-1.484A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 01-5.012-1.371l-.36-.214-3.759.881.918-3.661-.234-.376A9.784 9.784 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.422 0 9.818 4.396 9.818 9.818 0 5.422-4.396 9.818-9.818 9.818z"/></svg>
     Hubungi via WhatsApp
   </a>
@@ -94,10 +633,7 @@
 
 <!-- ============ HERO SECTION ============ -->
 <section class="hero" id="home">
-  <!-- Background Particles -->
   <div class="hero-particles" id="heroParticles"></div>
-
-  <!-- Hero Slides -->
   <div class="hero-slides" id="heroSlides">
     <div class="hero-slide active" style="background-image:url('https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=1600&q=80')"></div>
     <div class="hero-slide"        style="background-image:url('https://images.unsplash.com/photo-1556742393-d75f468bfcb0?auto=format&fit=crop&w=1600&q=80')"></div>
@@ -122,13 +658,12 @@
         Limit hingga <strong>Rp 1 Miliar</strong> — apply mudah, cepat & aman.
       </p>
       <div class="hero-actions">
-        <a href="https://wa.me/62895635754671?text=Halo%2C%20saya%20ingin%20apply%20Kartu%20Kredit%20MNC%20Bank.%20Boleh%20minta%20info%20lebih%20lanjut%3F%20🏦" class="btn-primary btn-xl" target="_blank" rel="noopener">
+        <a href="https://wa.me/6289502384651?text=Halo%2C%20saya%20ingin%20apply%20Kartu%20Kredit%20MNC%20Bank.%20Boleh%20minta%20info%20lebih%20lanjut%3F%20🏦" class="btn-primary btn-xl" target="_blank" rel="noopener">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.514 5.831L0 24l6.332-1.484A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 01-5.012-1.371l-.36-.214-3.759.881.918-3.661-.234-.376A9.784 9.784 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.422 0 9.818 4.396 9.818 9.818 0 5.422-4.396 9.818-9.818 9.818z"/></svg>
           Apply via WhatsApp
         </a>
         <a href="#kartu" class="btn-ghost">Lihat Kartu →</a>
       </div>
-      <!-- Stats Row -->
       <div class="hero-stats">
         <div class="hero-stat">
           <span class="stat-num" data-count="500">0</span><span class="stat-suffix">K+</span>
@@ -152,65 +687,37 @@
       </div>
     </div>
 
-    <!-- Right: Floating Card Mockup -->
+    <!-- Right: Real Card Image -->
     <div class="hero-right reveal-item reveal-delay">
       <div class="card-3d-wrapper">
         <div class="card-3d">
-          <div class="card-face card-front">
-            <div class="card-chip">
-              <div class="chip-line"></div><div class="chip-line"></div><div class="chip-line"></div>
-            </div>
-            <div class="card-network">
-              <div class="circle circle-1"></div>
-              <div class="circle circle-2"></div>
-            </div>
-            <div class="card-number">•••• •••• •••• 8821</div>
-            <div class="card-meta">
-              <div>
-                <div class="card-label">Nama Pemegang</div>
-                <div class="card-value">NASABAH MNC BANK</div>
-              </div>
-              <div>
-                <div class="card-label">Berlaku Sampai</div>
-                <div class="card-value">12/29</div>
-              </div>
-            </div>
-            <div class="card-brand-logo">
-              <img src="https://mncbank.co.id/image/mnc_logo.png" alt="MNC" class="card-bank-logo">
-            </div>
-          </div>
+          <img src="platinum.png" alt="MNC Bank Visa Platinum" class="card-img-hero" id="heroCardImg">
         </div>
-        <!-- Floating Badges -->
         <div class="float-badge float-1">
-          <span class="badge-icon">✨</span>
-          <span>Cicilan 0%</span>
+          <span class="badge-icon">✨</span><span>Cicilan 0%</span>
         </div>
         <div class="float-badge float-2">
-          <span class="badge-icon">🎁</span>
-          <span>Cashback Rp250rb</span>
+          <span class="badge-icon">🎁</span><span>Cashback Rp250rb</span>
         </div>
         <div class="float-badge float-3">
-          <span class="badge-icon">🎬</span>
-          <span>Buy 1 Get 2 XXI</span>
+          <span class="badge-icon">🎬</span><span>Buy 1 Get 2 XXI</span>
         </div>
       </div>
     </div>
   </div>
 
-  <!-- Slide Dots -->
   <div class="hero-dots">
     <span class="hero-dot active" onclick="goSlide(0)"></span>
     <span class="hero-dot" onclick="goSlide(1)"></span>
     <span class="hero-dot" onclick="goSlide(2)"></span>
   </div>
-
   <div class="scroll-cue">
     <div class="scroll-mouse"><div class="scroll-wheel"></div></div>
     <span>Scroll</span>
   </div>
 </section>
 
-<!-- ============ TICKER / MARQUEE ============ -->
+<!-- ============ TICKER ============ -->
 <div class="ticker-wrap">
   <div class="ticker-track">
     <span>🏅 Cicilan 0% s/d 24 Bulan</span><span class="ticker-sep">◆</span>
@@ -221,7 +728,6 @@
     <span>⚡ Cashback PLN Mobile via MNC Icon</span><span class="ticker-sep">◆</span>
     <span>🚗 Cashback Green SM Rp250rb</span><span class="ticker-sep">◆</span>
     <span>📱 Cicilan Samsung 0% Bunga</span><span class="ticker-sep">◆</span>
-    <!-- repeat for seamless loop -->
     <span>🏅 Cicilan 0% s/d 24 Bulan</span><span class="ticker-sep">◆</span>
     <span>💰 Cashback hingga Rp250.000</span><span class="ticker-sep">◆</span>
     <span>🎬 Buy 1 Get 2 Tiket XXI Setiap Jumat</span><span class="ticker-sep">◆</span>
@@ -248,14 +754,7 @@
       <div class="card-item reveal-item">
         <div class="card-item-inner">
           <div class="card-item-top gold">
-            <div class="card-visual visa-gold">
-              <div class="cv-chip"></div>
-              <div class="cv-logo">
-                <span>MNC</span><span class="cv-sub">bank</span>
-              </div>
-              <div class="cv-num">•••• •••• •••• ••••</div>
-              <div class="cv-network visa">VISA</div>
-            </div>
+            <img src="visa_gold.png" alt="MNC Visa Gold" class="card-img-real">
           </div>
           <div class="card-item-body">
             <h3>MNC Visa Gold</h3>
@@ -266,7 +765,7 @@
               <li>✅ Bebas iuran tahunan 2 tahun</li>
               <li>✅ Transaksi global Visa</li>
             </ul>
-            <a href="https://wa.me/62895635754671?text=Halo%2C%20saya%20ingin%20apply%20Kartu%20MNC%20Visa%20Gold.%20Bisa%20dibantu%3F" class="btn-card-apply" target="_blank" rel="noopener">Apply Sekarang →</a>
+            <a href="https://wa.me/6289502384651?text=Halo%2C%20saya%20ingin%20apply%20Kartu%20MNC%20Visa%20Gold.%20Bisa%20dibantu%3F" class="btn-card-apply" target="_blank" rel="noopener">Apply Sekarang →</a>
           </div>
         </div>
       </div>
@@ -276,14 +775,7 @@
         <div class="card-item-inner featured">
           <div class="featured-tag">⭐ Populer</div>
           <div class="card-item-top platinum">
-            <div class="card-visual visa-platinum">
-              <div class="cv-chip"></div>
-              <div class="cv-logo">
-                <span>MNC</span><span class="cv-sub">bank</span>
-              </div>
-              <div class="cv-num">•••• •••• •••• ••••</div>
-              <div class="cv-network visa">VISA</div>
-            </div>
+            <img src="platinum.png" alt="MNC Visa Platinum" class="card-img-real">
           </div>
           <div class="card-item-body">
             <h3>MNC Visa Platinum</h3>
@@ -294,7 +786,7 @@
               <li>✅ Priority customer service</li>
               <li>✅ Promo premium eksklusif</li>
             </ul>
-            <a href="https://wa.me/62895635754671?text=Halo%2C%20saya%20ingin%20apply%20Kartu%20MNC%20Visa%20Platinum.%20Bisa%20dibantu%3F" class="btn-card-apply featured-btn" target="_blank" rel="noopener">Apply Sekarang →</a>
+            <a href="https://wa.me/6289502384651?text=Halo%2C%20saya%20ingin%20apply%20Kartu%20MNC%20Visa%20Platinum.%20Bisa%20dibantu%3F" class="btn-card-apply featured-btn" target="_blank" rel="noopener">Apply Sekarang →</a>
           </div>
         </div>
       </div>
@@ -303,17 +795,7 @@
       <div class="card-item reveal-item reveal-d2">
         <div class="card-item-inner">
           <div class="card-item-top titanium">
-            <div class="card-visual mc-titanium">
-              <div class="cv-chip"></div>
-              <div class="cv-logo">
-                <span>MNC</span><span class="cv-sub">bank</span>
-              </div>
-              <div class="cv-num">•••• •••• •••• ••••</div>
-              <div class="cv-network mc">
-                <div class="mc-c mc-c1"></div>
-                <div class="mc-c mc-c2"></div>
-              </div>
-            </div>
+            <img src="mastercard.png" alt="Motion Titanium Mastercard" class="card-img-real">
           </div>
           <div class="card-item-body">
             <h3>Motion Titanium Mastercard</h3>
@@ -324,7 +806,7 @@
               <li>✅ Cicilan 0% min Rp500rb</li>
               <li>✅ Transaksi global Mastercard</li>
             </ul>
-            <a href="https://wa.me/62895635754671?text=Halo%2C%20saya%20ingin%20apply%20Motion%20Titanium%20Mastercard.%20Bisa%20dibantu%3F" class="btn-card-apply" target="_blank" rel="noopener">Apply Sekarang →</a>
+            <a href="https://wa.me/6289502384651?text=Halo%2C%20saya%20ingin%20apply%20Motion%20Titanium%20Mastercard.%20Bisa%20dibantu%3F" class="btn-card-apply" target="_blank" rel="noopener">Apply Sekarang →</a>
           </div>
         </div>
       </div>
@@ -333,14 +815,7 @@
       <div class="card-item reveal-item reveal-d3">
         <div class="card-item-inner">
           <div class="card-item-top icon">
-            <div class="card-visual mnc-icon">
-              <div class="cv-chip"></div>
-              <div class="cv-logo">
-                <span>MNC</span><span class="cv-sub">Icon</span>
-              </div>
-              <div class="cv-num">•••• •••• •••• ••••</div>
-              <div class="cv-network visa">VISA</div>
-            </div>
+            <img src="visa_icon.webp" alt="MNC Icon Visa Card" class="card-img-real">
           </div>
           <div class="card-item-body">
             <h3>MNC Icon Visa Card</h3>
@@ -351,7 +826,7 @@
               <li>✅ Teknologi Contactless</li>
               <li>✅ Promo utilitas eksklusif</li>
             </ul>
-            <a href="https://wa.me/62895635754671?text=Halo%2C%20saya%20ingin%20apply%20MNC%20Icon%20Visa%20Card.%20Bisa%20dibantu%3F" class="btn-card-apply" target="_blank" rel="noopener">Apply Sekarang →</a>
+            <a href="https://wa.me/6289502384651?text=Halo%2C%20saya%20ingin%20apply%20MNC%20Icon%20Visa%20Card.%20Bisa%20dibantu%3F" class="btn-card-apply" target="_blank" rel="noopener">Apply Sekarang →</a>
           </div>
         </div>
       </div>
@@ -360,14 +835,7 @@
       <div class="card-item reveal-item reveal-d4">
         <div class="card-item-inner">
           <div class="card-item-top kai">
-            <div class="card-visual kai-card">
-              <div class="cv-chip"></div>
-              <div class="cv-logo">
-                <span>KAI</span><span class="cv-sub">x MNC</span>
-              </div>
-              <div class="cv-num">•••• •••• •••• ••••</div>
-              <div class="cv-network visa">VISA</div>
-            </div>
+            <img src="kai.jpg" alt="KAI Access MNC Card" class="card-img-real">
           </div>
           <div class="card-item-body">
             <h3>KAI Access MNC Card</h3>
@@ -378,7 +846,7 @@
               <li>✅ Reward point perjalanan</li>
               <li>✅ Diskon lounge stasiun</li>
             </ul>
-            <a href="https://wa.me/62895635754671?text=Halo%2C%20saya%20ingin%20apply%20KAI%20Access%20MNC%20Card.%20Bisa%20dibantu%3F" class="btn-card-apply" target="_blank" rel="noopener">Apply Sekarang →</a>
+            <a href="https://wa.me/6289502384651?text=Halo%2C%20saya%20ingin%20apply%20KAI%20Access%20MNC%20Card.%20Bisa%20dibantu%3F" class="btn-card-apply" target="_blank" rel="noopener">Apply Sekarang →</a>
           </div>
         </div>
       </div>
@@ -387,14 +855,7 @@
       <div class="card-item reveal-item reveal-d5">
         <div class="card-item-inner">
           <div class="card-item-top citilink">
-            <div class="card-visual citilink-card">
-              <div class="cv-chip"></div>
-              <div class="cv-logo">
-                <span>Citilink</span><span class="cv-sub">x MNC</span>
-              </div>
-              <div class="cv-num">•••• •••• •••• ••••</div>
-              <div class="cv-network visa">VISA</div>
-            </div>
+            <img src="citilink.png" alt="MNC Citilink Visa Card" class="card-img-real">
           </div>
           <div class="card-item-body">
             <h3>MNC Citilink Visa Card</h3>
@@ -405,11 +866,20 @@
               <li>✅ Reward miles perjalanan</li>
               <li>✅ Promo hotel & akomodasi</li>
             </ul>
-            <a href="https://wa.me/62895635754671?text=Halo%2C%20saya%20ingin%20apply%20MNC%20Citilink%20Visa%20Card.%20Bisa%20dibantu%3F" class="btn-card-apply" target="_blank" rel="noopener">Apply Sekarang →</a>
+            <a href="https://wa.me/6289502384651?text=Halo%2C%20saya%20ingin%20apply%20MNC%20Citilink%20Visa%20Card.%20Bisa%20dibantu%3F" class="btn-card-apply" target="_blank" rel="noopener">Apply Sekarang →</a>
           </div>
         </div>
       </div>
 
+    </div>
+  </div>
+</section>
+
+<!-- ============ BANNER SECTION ============ -->
+<section class="banner-section reveal-item">
+  <div class="container">
+    <div class="banner-img-wrap">
+      <img src="banner.png" alt="Kartu Kredit MNC Bank - Suits You Best" loading="lazy">
     </div>
   </div>
 </section>
@@ -427,7 +897,6 @@
     <div class="swiper promoSwiper">
       <div class="swiper-wrapper">
 
-        <!-- Promo 1 -->
         <div class="swiper-slide">
           <div class="promo-card reveal-item">
             <div class="promo-img-wrap">
@@ -438,12 +907,11 @@
               <h3>Buy 1 Get 2 Tiket XXI</h3>
               <p>Nonton <strong>berdua</strong> bayar satu tiket setiap <strong>hari Jumat</strong> menggunakan semua jenis Kartu Kredit MNC Bank!</p>
               <div class="promo-tag">Setiap Hari Jumat</div>
-              <a href="https://wa.me/62895635754671?text=Halo%2C%20saya%20mau%20info%20promo%20XXI%20Kartu%20Kredit%20MNC%20Bank" target="_blank" rel="noopener" class="promo-btn">Klaim Promo →</a>
+              <a href="https://wa.me/6289502384651?text=Halo%2C%20saya%20mau%20info%20promo%20XXI%20Kartu%20Kredit%20MNC%20Bank" target="_blank" rel="noopener" class="promo-btn">Klaim Promo →</a>
             </div>
           </div>
         </div>
 
-        <!-- Promo 2 -->
         <div class="swiper-slide">
           <div class="promo-card reveal-item">
             <div class="promo-img-wrap">
@@ -454,12 +922,11 @@
               <h3>Diskon Garuda Rp1 Juta</h3>
               <p>Diskon hingga <strong>Rp1.000.000</strong> untuk pembelian tiket Garuda Indonesia dengan minimum transaksi Rp3 juta.</p>
               <div class="promo-tag">garuda-indonesia.com</div>
-              <a href="https://wa.me/62895635754671?text=Halo%2C%20saya%20mau%20info%20promo%20Garuda%20Kartu%20Kredit%20MNC%20Bank" target="_blank" rel="noopener" class="promo-btn">Klaim Promo →</a>
+              <a href="https://wa.me/6289502384651?text=Halo%2C%20saya%20mau%20info%20promo%20Garuda%20Kartu%20Kredit%20MNC%20Bank" target="_blank" rel="noopener" class="promo-btn">Klaim Promo →</a>
             </div>
           </div>
         </div>
 
-        <!-- Promo 3 -->
         <div class="swiper-slide">
           <div class="promo-card reveal-item">
             <div class="promo-img-wrap">
@@ -470,12 +937,11 @@
               <h3>Promo Blibli Cashback Rp150rb</h3>
               <p>Cashback hingga <strong>Rp150.000</strong> untuk pembayaran tagihan rutin (PLN, air, BPJS, internet) via Blibli.</p>
               <div class="promo-tag">Semua Kartu Kredit MNC</div>
-              <a href="https://wa.me/62895635754671?text=Halo%2C%20saya%20mau%20info%20promo%20Blibli%20Kartu%20Kredit%20MNC%20Bank" target="_blank" rel="noopener" class="promo-btn">Klaim Promo →</a>
+              <a href="https://wa.me/6289502384651?text=Halo%2C%20saya%20mau%20info%20promo%20Blibli%20Kartu%20Kredit%20MNC%20Bank" target="_blank" rel="noopener" class="promo-btn">Klaim Promo →</a>
             </div>
           </div>
         </div>
 
-        <!-- Promo 4 -->
         <div class="swiper-slide">
           <div class="promo-card reveal-item">
             <div class="promo-img-wrap">
@@ -486,12 +952,11 @@
               <h3>Cicilan 0% Samsung</h3>
               <p>Beli produk Samsung tipe apapun dengan cicilan <strong>0% bunga</strong> minimal transaksi Rp1 juta di outlet resmi Samsung.</p>
               <div class="promo-tag">Min. Trx Rp1 Juta</div>
-              <a href="https://wa.me/62895635754671?text=Halo%2C%20saya%20mau%20info%20promo%20Samsung%20Kartu%20Kredit%20MNC%20Bank" target="_blank" rel="noopener" class="promo-btn">Klaim Promo →</a>
+              <a href="https://wa.me/6289502384651?text=Halo%2C%20saya%20mau%20info%20promo%20Samsung%20Kartu%20Kredit%20MNC%20Bank" target="_blank" rel="noopener" class="promo-btn">Klaim Promo →</a>
             </div>
           </div>
         </div>
 
-        <!-- Promo 5 -->
         <div class="swiper-slide">
           <div class="promo-card reveal-item">
             <div class="promo-img-wrap">
@@ -502,12 +967,11 @@
               <h3>Cashback PLN Rp20rb/Bulan</h3>
               <p>Cashback <strong>Rp20.000</strong> per bulan untuk pembayaran listrik, token PLN & paket internet via PLN Mobile.</p>
               <div class="promo-tag">MNC Icon Visa Card</div>
-              <a href="https://wa.me/62895635754671?text=Halo%2C%20saya%20mau%20info%20promo%20PLN%20Mobile%20MNC%20Icon%20Visa" target="_blank" rel="noopener" class="promo-btn">Klaim Promo →</a>
+              <a href="https://wa.me/6289502384651?text=Halo%2C%20saya%20mau%20info%20promo%20PLN%20Mobile%20MNC%20Icon%20Visa" target="_blank" rel="noopener" class="promo-btn">Klaim Promo →</a>
             </div>
           </div>
         </div>
 
-        <!-- Promo 6 -->
         <div class="swiper-slide">
           <div class="promo-card reveal-item">
             <div class="promo-img-wrap">
@@ -518,12 +982,11 @@
               <h3>Cashback Green SM Rp250rb</h3>
               <p>Cashback total hingga <strong>Rp250.000</strong> untuk nasabah baru yang menggunakan Kartu Kredit MNC Bank di Green SM.</p>
               <div class="promo-tag">Nasabah Baru</div>
-              <a href="https://wa.me/62895635754671?text=Halo%2C%20saya%20mau%20info%20promo%20Green%20SM%20Kartu%20Kredit%20MNC%20Bank" target="_blank" rel="noopener" class="promo-btn">Klaim Promo →</a>
+              <a href="https://wa.me/6289502384651?text=Halo%2C%20saya%20mau%20info%20promo%20Green%20SM%20Kartu%20Kredit%20MNC%20Bank" target="_blank" rel="noopener" class="promo-btn">Klaim Promo →</a>
             </div>
           </div>
         </div>
 
-        <!-- Promo 7 -->
         <div class="swiper-slide">
           <div class="promo-card reveal-item">
             <div class="promo-img-wrap">
@@ -534,7 +997,7 @@
               <h3>Diskon 10% Tokopedia</h3>
               <p>Diskon 10% hingga <strong>Rp50.000</strong> untuk pembayaran tagihan utilities di Tokopedia. Kode: MCKREDIT.</p>
               <div class="promo-tag">Min. Trx Rp100rb</div>
-              <a href="https://wa.me/62895635754671?text=Halo%2C%20saya%20mau%20info%20promo%20Tokopedia%20Kartu%20Kredit%20MNC%20Bank" target="_blank" rel="noopener" class="promo-btn">Klaim Promo →</a>
+              <a href="https://wa.me/6289502384651?text=Halo%2C%20saya%20mau%20info%20promo%20Tokopedia%20Kartu%20Kredit%20MNC%20Bank" target="_blank" rel="noopener" class="promo-btn">Klaim Promo →</a>
             </div>
           </div>
         </div>
@@ -545,7 +1008,7 @@
 
     <div class="promo-cta-row reveal-item">
       <p>Ada lebih banyak promo menanti Anda!</p>
-      <a href="https://wa.me/62895635754671?text=Halo%2C%20saya%20ingin%20tahu%20semua%20promo%20Kartu%20Kredit%20MNC%20Bank%20yang%20tersedia" class="btn-primary" target="_blank" rel="noopener">
+      <a href="https://wa.me/6289502384651?text=Halo%2C%20saya%20ingin%20tahu%20semua%20promo%20Kartu%20Kredit%20MNC%20Bank%20yang%20tersedia" class="btn-primary" target="_blank" rel="noopener">
         Tanya Semua Promo →
       </a>
     </div>
@@ -560,7 +1023,6 @@
       <h2 class="section-title">Mengapa Pilih <span class="gold-text">Kartu Kredit MNC Bank</span>?</h2>
       <p class="section-desc">Keuntungan nyata yang Anda rasakan setiap hari</p>
     </div>
-
     <div class="benefit-grid">
       <div class="benefit-card reveal-item">
         <div class="benefit-icon">💳</div>
@@ -610,50 +1072,34 @@
 <section class="section steps-section" id="syarat">
   <div class="container">
     <div class="steps-wrap">
-      <!-- Left: Steps -->
       <div class="steps-left reveal-item">
         <div class="section-badge">📋 Cara Apply</div>
         <h2 class="section-title" style="text-align:left">Cara Apply <span class="gold-text">Super Mudah</span></h2>
         <p style="color:var(--text-muted);margin-bottom:2rem">Proses pengajuan kartu kredit MNC Bank mudah dan bisa dilakukan dari rumah Anda.</p>
-
         <div class="steps-list">
           <div class="step-item reveal-item">
             <div class="step-num">01</div>
-            <div class="step-body">
-              <h4>Hubungi via WhatsApp</h4>
-              <p>Klik tombol WhatsApp dan kirim pesan. Tim kami siap membantu proses Anda.</p>
-            </div>
+            <div class="step-body"><h4>Hubungi via WhatsApp</h4><p>Klik tombol WhatsApp dan kirim pesan. Tim kami siap membantu proses Anda.</p></div>
           </div>
           <div class="step-item reveal-item reveal-d1">
             <div class="step-num">02</div>
-            <div class="step-body">
-              <h4>Siapkan Dokumen</h4>
-              <p>KTP, NPWP, slip gaji/surat penghasilan, dan rekening tabungan 3 bulan terakhir.</p>
-            </div>
+            <div class="step-body"><h4>Siapkan Dokumen</h4><p>KTP, NPWP, slip gaji/surat penghasilan, dan rekening tabungan 3 bulan terakhir.</p></div>
           </div>
           <div class="step-item reveal-item reveal-d2">
             <div class="step-num">03</div>
-            <div class="step-body">
-              <h4>Isi Formulir Online</h4>
-              <p>Lengkapi data diri dan pilih jenis kartu yang sesuai kebutuhan Anda.</p>
-            </div>
+            <div class="step-body"><h4>Isi Formulir Online</h4><p>Lengkapi data diri dan pilih jenis kartu yang sesuai kebutuhan Anda.</p></div>
           </div>
           <div class="step-item reveal-item reveal-d3">
             <div class="step-num">04</div>
-            <div class="step-body">
-              <h4>Kartu Dikirim ke Rumah</h4>
-              <p>Setelah disetujui, kartu akan dikirim langsung ke alamat Anda. Aktifkan & nikmati!</p>
-            </div>
+            <div class="step-body"><h4>Kartu Dikirim ke Rumah</h4><p>Setelah disetujui, kartu akan dikirim langsung ke alamat Anda. Aktifkan & nikmati!</p></div>
           </div>
         </div>
-
-        <a href="https://wa.me/62895635754671?text=Halo%2C%20saya%20ingin%20apply%20Kartu%20Kredit%20MNC%20Bank%20sekarang!%20🏦" class="btn-primary btn-xl" target="_blank" rel="noopener" style="margin-top:2rem">
+        <a href="https://wa.me/6289502384651?text=Halo%2C%20saya%20ingin%20apply%20Kartu%20Kredit%20MNC%20Bank%20sekarang!%20🏦" class="btn-primary btn-xl" target="_blank" rel="noopener" style="margin-top:2rem">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.514 5.831L0 24l6.332-1.484A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 01-5.012-1.371l-.36-.214-3.759.881.918-3.661-.234-.376A9.784 9.784 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.422 0 9.818 4.396 9.818 9.818 0 5.422-4.396 9.818-9.818 9.818z"/></svg>
           Mulai Apply Sekarang
         </a>
       </div>
 
-      <!-- Right: Requirements -->
       <div class="steps-right reveal-item reveal-delay">
         <div class="req-box">
           <h3>📋 Syarat Pengajuan</h3>
@@ -744,20 +1190,20 @@
         <div class="swiper-slide">
           <div class="testi-card">
             <div class="testi-stars">★★★★★</div>
-            <p>"Beli Samsung Galaxy dengan cicilan 0% 12 bulan via MNC Bank. Harga lebih terjangkau, bunga 0%, CS-nya responsif. Top banget pelayanannya!"</p>
+            <p>"Citilink Visa MNC Bank terbaik! Sering dapat bonus miles dan cashback tiket. CS-nya juga responsif banget via WhatsApp. Puas sekali!"</p>
             <div class="testi-author">
-              <div class="testi-avatar">FN</div>
-              <div><strong>Fajar Nugraha</strong><br><small>Pelajar/Mahasiswa, Yogyakarta</small></div>
+              <div class="testi-avatar">AL</div>
+              <div><strong>Ari Lestari</strong><br><small>Frequent Flyer, Medan</small></div>
             </div>
           </div>
         </div>
         <div class="swiper-slide">
           <div class="testi-card">
             <div class="testi-stars">★★★★★</div>
-            <p>"Pakai Citilink MNC Visa Card, tiap beli tiket pesawat langsung cashback 10%. Dalam setahun bisa hemat jutaan rupiah. Sangat worth it!"</p>
+            <p>"Motion Titanium Mastercard keren banget designnya! Contactless-nya smooth, promo di Tokopedia sering banget. Gak nyesel apply dari awal."</p>
             <div class="testi-author">
-              <div class="testi-avatar">LM</div>
-              <div><strong>Linda Maharani</strong><br><small>Frequent Traveler, Medan</small></div>
+              <div class="testi-avatar">DN</div>
+              <div><strong>Denny Nugroho</strong><br><small>Tech Enthusiast, Yogyakarta</small></div>
             </div>
           </div>
         </div>
@@ -773,68 +1219,68 @@
     <div class="faq-wrap">
       <div class="faq-left reveal-item">
         <div class="section-badge">❓ FAQ</div>
-        <h2 class="section-title" style="text-align:left">Pertanyaan <span class="gold-text">Yang Sering Ditanyakan</span></h2>
-        <p style="color:var(--text-muted);margin-bottom:2rem">Tidak menemukan jawaban Anda? Hubungi kami via WhatsApp.</p>
-        <a href="https://wa.me/62895635754671?text=Halo%2C%20saya%20punya%20pertanyaan%20tentang%20Kartu%20Kredit%20MNC%20Bank" class="btn-primary" target="_blank" rel="noopener">
-          Tanya Langsung →
-        </a>
+        <h2 class="section-title" style="text-align:left">Pertanyaan <span class="gold-text">Yang Sering Ditanya</span></h2>
         <div class="faq-img-wrap">
-          <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=500&q=80" alt="Customer Service" loading="lazy">
+          <img src="https://images.unsplash.com/photo-1556742031-c6961e8560b0?auto=format&fit=crop&w=600&q=80" alt="Customer Service" loading="lazy">
         </div>
+        <a href="https://wa.me/6289502384651?text=Halo%2C%20saya%20punya%20pertanyaan%20tentang%20Kartu%20Kredit%20MNC%20Bank" class="btn-primary" style="margin-top:24px" target="_blank" rel="noopener">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.514 5.831L0 24l6.332-1.484A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 01-5.012-1.371l-.36-.214-3.759.881.918-3.661-.234-.376A9.784 9.784 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.422 0 9.818 4.396 9.818 9.818 0 5.422-4.396 9.818-9.818 9.818z"/></svg>
+          Tanya via WhatsApp
+        </a>
       </div>
-      <div class="faq-right">
-        <div class="faq-item reveal-item">
+      <div class="faq-right reveal-item reveal-delay">
+        <div class="faq-item">
           <button class="faq-btn" onclick="toggleFaq(this)">
             <span>Berapa lama proses persetujuan kartu kredit MNC Bank?</span>
             <span class="faq-arrow">▼</span>
           </button>
           <div class="faq-answer">
-            <p>Proses persetujuan biasanya memakan waktu 7–14 hari kerja setelah dokumen lengkap diterima. Setelah disetujui, kartu akan dikirim ke alamat Anda dalam 3–5 hari kerja.</p>
+            <p>Proses persetujuan biasanya memakan waktu <strong>3–7 hari kerja</strong> setelah semua dokumen lengkap. Kartu akan dikirim ke alamat Anda dalam 7–14 hari kerja setelah persetujuan.</p>
           </div>
         </div>
-        <div class="faq-item reveal-item reveal-d1">
+        <div class="faq-item">
           <button class="faq-btn" onclick="toggleFaq(this)">
-            <span>Apa saja keuntungan cicilan 0% kartu kredit MNC Bank?</span>
+            <span>Berapa penghasilan minimum untuk apply kartu kredit MNC Bank?</span>
             <span class="faq-arrow">▼</span>
           </button>
           <div class="faq-answer">
-            <p>Anda dapat mencicil pembelian tanpa bunga dengan tenor 3, 6, 12, hingga 24 bulan di ribuan merchant rekanan. Minimal transaksi mulai Rp500.000 tergantung jenis kartu dan merchant.</p>
+            <p>Penghasilan minimum adalah <strong>Rp3.000.000 per bulan</strong> untuk semua jenis kartu. Limit yang Anda dapatkan akan disesuaikan dengan profil keuangan dan penghasilan.</p>
           </div>
         </div>
-        <div class="faq-item reveal-item reveal-d2">
+        <div class="faq-item">
           <button class="faq-btn" onclick="toggleFaq(this)">
-            <span>Bagaimana cara klaim cashback dan reward points?</span>
+            <span>Apakah ada biaya annual fee?</span>
             <span class="faq-arrow">▼</span>
           </button>
           <div class="faq-answer">
-            <p>Cashback otomatis dikreditkan ke tagihan kartu kredit Anda. Reward points dapat dilihat dan ditukar melalui aplikasi MotionBank atau menghubungi CS 1500 188.</p>
+            <p>MNC Bank menawarkan <strong>bebas annual fee hingga 3 tahun</strong> untuk nasabah baru. Setelah periode bebas, annual fee bervariasi tergantung jenis kartu yang dipilih.</p>
           </div>
         </div>
-        <div class="faq-item reveal-item reveal-d3">
+        <div class="faq-item">
           <button class="faq-btn" onclick="toggleFaq(this)">
-            <span>Apakah bisa apply kartu kredit tanpa kartu kredit sebelumnya?</span>
+            <span>Bagaimana cara mengaktifkan kartu setelah diterima?</span>
             <span class="faq-arrow">▼</span>
           </button>
           <div class="faq-answer">
-            <p>Untuk beberapa jenis kartu (misalnya Visa Gold), dibutuhkan riwayat kartu kredit sebelumnya. Namun untuk kartu tertentu seperti MNC Icon Visa, pengajuan bisa dilakukan tanpa riwayat kartu kredit sebelumnya. Hubungi tim kami untuk info selengkapnya.</p>
+            <p>Aktivasi bisa dilakukan melalui aplikasi <strong>MotionBank</strong>, call center 1500 188, atau via WhatsApp ke nomor CS kami. Proses aktivasi hanya butuh beberapa menit.</p>
           </div>
         </div>
-        <div class="faq-item reveal-item reveal-d4">
+        <div class="faq-item">
           <button class="faq-btn" onclick="toggleFaq(this)">
-            <span>Berapa iuran tahunan kartu kredit MNC Bank?</span>
+            <span>Apakah kartu bisa digunakan untuk transaksi luar negeri?</span>
             <span class="faq-arrow">▼</span>
           </button>
           <div class="faq-answer">
-            <p>Iuran tahunan bervariasi tergantung jenis kartu. Kartu Kredit MNC Bank Gold dikenakan iuran Rp300.000/tahun namun <strong>bebas iuran tahunan untuk 2 tahun pertama</strong>. Beberapa kartu jenis tertentu memiliki iuran berbeda.</p>
+            <p>Ya! Semua kartu kredit MNC Bank berlogo Visa dan Mastercard <strong>dapat digunakan di seluruh dunia</strong> di merchant yang menerima Visa/Mastercard.</p>
           </div>
         </div>
-        <div class="faq-item reveal-item reveal-d5">
+        <div class="faq-item">
           <button class="faq-btn" onclick="toggleFaq(this)">
-            <span>Bagaimana cara mengelola kartu kredit MNC Bank?</span>
+            <span>Bagaimana cara mengajukan cicilan 0%?</span>
             <span class="faq-arrow">▼</span>
           </button>
           <div class="faq-answer">
-            <p>Semua pengelolaan kartu kredit dapat dilakukan via aplikasi <strong>MotionBank</strong>: cek limit, lihat tagihan, bayar tagihan, ubah cicilan, aktivasi kartu, ubah PIN, dan masih banyak lagi — kapan saja dan di mana saja.</p>
+            <p>Cicilan 0% bisa diajukan saat transaksi di merchant rekanan, atau ubah transaksi menjadi cicilan melalui aplikasi <strong>MotionBank</strong> dalam 30 hari setelah transaksi. Minimal transaksi bervariasi tergantung merchant.</p>
           </div>
         </div>
       </div>
@@ -845,19 +1291,21 @@
 <!-- ============ CTA SECTION ============ -->
 <section class="cta-section">
   <div class="cta-bg-anim"></div>
-  <div class="container cta-inner reveal-item">
-    <div class="cta-text">
-      <h2>Siap Rasakan <span class="gold-text">Keuntungan Tanpa Batas</span>?</h2>
-      <p>Apply Kartu Kredit MNC Bank sekarang — proses mudah, cepat, dan aman. Hubungi tim kami via WhatsApp!</p>
-    </div>
-    <div class="cta-actions">
-      <a href="https://wa.me/62895635754671?text=Halo%2C%20saya%20ingin%20apply%20Kartu%20Kredit%20MNC%20Bank%20sekarang!%20Mohon%20bantuannya%20%F0%9F%8F%A6" class="btn-primary btn-xl cta-wa-btn" target="_blank" rel="noopener">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.514 5.831L0 24l6.332-1.484A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 01-5.012-1.371l-.36-.214-3.759.881.918-3.661-.234-.376A9.784 9.784 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.422 0 9.818 4.396 9.818 9.818 0 5.422-4.396 9.818-9.818 9.818z"/></svg>
-        Chat WhatsApp Sekarang
-      </a>
-      <div class="cta-phone">
-        <span>📞 1500 188</span>
-        <small>Customer Service 24 Jam</small>
+  <div class="container">
+    <div class="cta-inner reveal-item">
+      <div class="cta-text">
+        <h2>Siap Nikmati Semua <span class="gold-text">Keistimewaan</span>?</h2>
+        <p>Bergabunglah dengan ratusan ribu nasabah MNC Bank yang sudah merasakan manfaat kartu kredit terbaik. Apply sekarang via WhatsApp — cepat, mudah, dan aman!</p>
+      </div>
+      <div class="cta-actions">
+        <a href="https://wa.me/6289502384651?text=Halo%2C%20saya%20ingin%20apply%20Kartu%20Kredit%20MNC%20Bank!%20Mohon%20bantuannya%20🏦" class="btn-primary btn-xl cta-wa-btn" target="_blank" rel="noopener">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.514 5.831L0 24l6.332-1.484A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 01-5.012-1.371l-.36-.214-3.759.881.918-3.661-.234-.376A9.784 9.784 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.422 0 9.818 4.396 9.818 9.818 0 5.422-4.396 9.818-9.818 9.818z"/></svg>
+          Chat WhatsApp Sekarang
+        </a>
+        <div class="cta-phone">
+          <span>📞 1500 188</span>
+          <small>Customer Service 24 Jam</small>
+        </div>
       </div>
     </div>
   </div>
@@ -867,10 +1315,10 @@
 <footer class="footer">
   <div class="container footer-inner">
     <div class="footer-brand">
-      <img src="https://mncbank.co.id/image/mnc_logo.png" alt="MNC Bank" class="footer-logo">
+      <img src="mnc_logo.png" alt="MNC Bank" class="footer-logo">
       <p>PT Bank MNC Internasional Tbk.<br>Terdaftar & Diawasi OJK</p>
       <div class="footer-social">
-        <a href="https://wa.me/62895635754671" target="_blank" rel="noopener" title="WhatsApp">
+        <a href="https://wa.me/6289502384651" target="_blank" rel="noopener" title="WhatsApp">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.514 5.831L0 24l6.332-1.484A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 01-5.012-1.371l-.36-.214-3.759.881.918-3.661-.234-.376A9.784 9.784 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.422 0 9.818 4.396 9.818 9.818 0 5.422-4.396 9.818-9.818 9.818z"/></svg>
         </a>
       </div>
@@ -894,7 +1342,7 @@
     </div>
     <div class="footer-links">
       <h4>Hubungi Kami</h4>
-      <a href="https://wa.me/62895635754671" target="_blank" rel="noopener">WhatsApp: 0895-6357-54671</a>
+      <a href="https://wa.me/6289502384651" target="_blank" rel="noopener">WhatsApp: 089502384651</a>
       <a href="tel:1500188">Call Center: 1500 188</a>
       <a href="https://mncbank.co.id" target="_blank" rel="noopener">mncbank.co.id</a>
       <a href="https://motionbank.id" target="_blank" rel="noopener">MotionBank App</a>
@@ -907,7 +1355,7 @@
 </footer>
 
 <!-- ============ FLOATING WA BUTTON ============ -->
-<a href="https://wa.me/62895635754671?text=Halo%2C%20saya%20ingin%20apply%20Kartu%20Kredit%20MNC%20Bank!%20Bisa%20dibantu%3F%20🏦" class="fab-wa" id="fabWa" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
+<a href="https://wa.me/6289502384651?text=Halo%2C%20saya%20ingin%20apply%20Kartu%20Kredit%20MNC%20Bank!%20Bisa%20dibantu%3F%20🏦" class="fab-wa" id="fabWa" target="_blank" rel="noopener" aria-label="Chat WhatsApp">
   <span class="fab-pulse"></span>
   <svg width="28" height="28" viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.115.549 4.099 1.514 5.831L0 24l6.332-1.484A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.817 9.817 0 01-5.012-1.371l-.36-.214-3.759.881.918-3.661-.234-.376A9.784 9.784 0 012.182 12C2.182 6.578 6.578 2.182 12 2.182c5.422 0 9.818 4.396 9.818 9.818 0 5.422-4.396 9.818-9.818 9.818z"/></svg>
   <span class="fab-label">Apply Kartu Kredit</span>
@@ -917,18 +1365,24 @@
 <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
 <script>
-// ── PRELOADER ──
+// ─────────────────────────────────────────
+// PRELOADER
+// ─────────────────────────────────────────
 window.addEventListener('load', function() {
   var pl = document.getElementById('preloader');
   if (pl) {
     setTimeout(function() {
       pl.classList.add('hidden');
-      setTimeout(function() { pl.style.display = 'none'; }, 400);
+      setTimeout(function() { pl.style.display = 'none'; }, 500);
     }, 1200);
   }
+  // Trigger reveals after load
+  triggerReveal();
 });
 
-// ── SCROLL PROGRESS ──
+// ─────────────────────────────────────────
+// SCROLL PROGRESS
+// ─────────────────────────────────────────
 var scrollBar = document.getElementById('scroll-progress');
 function updateScrollProgress() {
   var scrollTop = window.scrollY;
@@ -937,32 +1391,43 @@ function updateScrollProgress() {
   if (scrollBar) scrollBar.style.width = pct + '%';
 }
 
-// ── NAVBAR ──
+// ─────────────────────────────────────────
+// NAVBAR
+// ─────────────────────────────────────────
 var navbar = document.getElementById('navbar');
 function updateNavbar() {
   if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 60);
 }
 
-// ── FAB WA ──
+// ─────────────────────────────────────────
+// FAB
+// ─────────────────────────────────────────
 var fabWa = document.getElementById('fabWa');
 function updateFab() {
   if (fabWa) fabWa.classList.toggle('visible', window.scrollY > 300);
 }
 
-// ── COMBINED SCROLL (passive for mobile perf) ──
+// ─────────────────────────────────────────
+// COMBINED SCROLL (passive)
+// ─────────────────────────────────────────
 window.addEventListener('scroll', function() {
   updateScrollProgress();
   updateNavbar();
   updateFab();
+  triggerReveal();
 }, { passive: true });
+
+// Initial calls
 updateScrollProgress();
 updateNavbar();
 updateFab();
 
-// ── MOBILE MENU ──
-var mobileMenu   = document.getElementById('mobileMenu');
+// ─────────────────────────────────────────
+// MOBILE MENU
+// ─────────────────────────────────────────
+var mobileMenu    = document.getElementById('mobileMenu');
 var mobileOverlay = document.getElementById('mobileOverlay');
-var hamburger    = document.getElementById('hamburger');
+var hamburger     = document.getElementById('hamburger');
 
 function toggleMenu() {
   var open = mobileMenu.classList.toggle('open');
@@ -978,10 +1443,16 @@ function closeMenu() {
 }
 if (hamburger) hamburger.addEventListener('click', toggleMenu);
 
-// ── HERO SLIDESHOW ──
-var slides = document.querySelectorAll('.hero-slide');
-var dots   = document.querySelectorAll('.hero-dot');
-var curIdx = 0;
+// ─────────────────────────────────────────
+// HERO SLIDESHOW
+// ─────────────────────────────────────────
+var slides  = document.querySelectorAll('.hero-slide');
+var dots    = document.querySelectorAll('.hero-dot');
+var curIdx  = 0;
+
+// Cycle hero card image in sync with slide
+var cardImages = ['platinum.png', 'mastercard.png', 'citilink.png'];
+var heroCardImg = document.getElementById('heroCardImg');
 
 function goSlide(idx) {
   if (!slides.length) return;
@@ -990,6 +1461,17 @@ function goSlide(idx) {
   curIdx = ((idx % slides.length) + slides.length) % slides.length;
   slides[curIdx].classList.add('active');
   if (dots[curIdx]) dots[curIdx].classList.add('active');
+  // Swap hero card image
+  if (heroCardImg && cardImages[curIdx]) {
+    heroCardImg.style.opacity = '0';
+    heroCardImg.style.transform = 'scale(0.95)';
+    setTimeout(function() {
+      heroCardImg.src = cardImages[curIdx];
+      heroCardImg.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+      heroCardImg.style.opacity = '1';
+      heroCardImg.style.transform = 'scale(1)';
+    }, 250);
+  }
 }
 
 var slideTimer = setInterval(function() { goSlide(curIdx + 1); }, 5000);
@@ -998,13 +1480,16 @@ document.addEventListener('visibilitychange', function() {
   if (!document.hidden) slideTimer = setInterval(function(){ goSlide(curIdx+1); }, 5000);
 });
 
-// ── HERO STAT COUNTER ──
+// ─────────────────────────────────────────
+// HERO STAT COUNTER
+// ─────────────────────────────────────────
+var countersRun = false;
 function animateCounter(el) {
   var target = parseInt(el.getAttribute('data-count')) || 0;
-  var start = null;
+  var start  = null;
   function step(ts) {
     if (!start) start = ts;
-    var p = Math.min((ts - start) / 1600, 1);
+    var p    = Math.min((ts - start) / 1800, 1);
     var ease = 1 - Math.pow(1 - p, 3);
     el.textContent = Math.floor(target * ease);
     if (p < 1) requestAnimationFrame(step);
@@ -1012,42 +1497,66 @@ function animateCounter(el) {
   }
   requestAnimationFrame(step);
 }
-// Run hero counters after 600ms
-setTimeout(function() {
+function runCounters() {
+  if (countersRun) return;
+  countersRun = true;
   document.querySelectorAll('.hero-stats .stat-num').forEach(animateCounter);
-}, 600);
+}
 
-// ── INTERSECTION OBSERVER (Scroll Reveal) ──
-// Uses threshold=0.06 + rootMargin to trigger early on mobile
-var revealObserver;
+// ─────────────────────────────────────────
+// SCROLL REVEAL — FIXED & ROBUST
+// ─────────────────────────────────────────
+function triggerReveal() {
+  var items = document.querySelectorAll('.reveal-item:not(.is-visible)');
+  var winH  = window.innerHeight;
+  items.forEach(function(el) {
+    var rect = el.getBoundingClientRect();
+    // Trigger when element's top is within viewport (with generous buffer)
+    if (rect.top < winH - 40) {
+      el.classList.add('is-visible');
+    }
+  });
+
+  // Run counters when hero stats are visible
+  var statsEl = document.querySelector('.hero-stats');
+  if (statsEl) {
+    var sRect = statsEl.getBoundingClientRect();
+    if (sRect.top < winH) runCounters();
+  }
+}
+
+// Also use IntersectionObserver as a secondary trigger (more reliable on mobile)
 if ('IntersectionObserver' in window) {
-  revealObserver = new IntersectionObserver(function(entries) {
+  var io = new IntersectionObserver(function(entries) {
     entries.forEach(function(entry) {
       if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        revealObserver.unobserve(entry.target);
+        entry.target.classList.add('is-visible');
+        io.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.06, rootMargin: '0px 0px -20px 0px' });
-
-  document.querySelectorAll('.reveal-item').forEach(function(el) {
-    revealObserver.observe(el);
+  }, {
+    threshold: 0,
+    rootMargin: '0px 0px -30px 0px'
   });
-} else {
-  // Fallback: show all immediately
   document.querySelectorAll('.reveal-item').forEach(function(el) {
-    el.classList.add('revealed');
+    io.observe(el);
   });
 }
 
-// SAFETY NET: After 800ms reveal anything still hidden
+// Safety net — reveal anything still hidden after 1.5s
 setTimeout(function() {
-  document.querySelectorAll('.reveal-item:not(.revealed)').forEach(function(el) {
-    el.classList.add('revealed');
+  document.querySelectorAll('.reveal-item:not(.is-visible)').forEach(function(el) {
+    el.classList.add('is-visible');
   });
-}, 800);
+  runCounters();
+}, 1500);
 
-// ── SWIPER: PROMO ──
+// Initial trigger
+setTimeout(triggerReveal, 100);
+
+// ─────────────────────────────────────────
+// SWIPER: PROMO
+// ─────────────────────────────────────────
 new Swiper('.promoSwiper', {
   loop: true,
   slidesPerView: 1.1,
@@ -1064,7 +1573,9 @@ new Swiper('.promoSwiper', {
   }
 });
 
-// ── SWIPER: TESTIMONIALS ──
+// ─────────────────────────────────────────
+// SWIPER: TESTIMONIALS
+// ─────────────────────────────────────────
 new Swiper('.testiSwiper', {
   loop: true,
   slidesPerView: 1.1,
@@ -1080,7 +1591,9 @@ new Swiper('.testiSwiper', {
   }
 });
 
-// ── FAQ ACCORDION ──
+// ─────────────────────────────────────────
+// FAQ ACCORDION
+// ─────────────────────────────────────────
 function toggleFaq(btn) {
   var item   = btn.closest('.faq-item');
   var isOpen = item.classList.contains('open');
@@ -1094,7 +1607,9 @@ function toggleFaq(btn) {
   }
 }
 
-// ── REQUIREMENT TABS ──
+// ─────────────────────────────────────────
+// REQUIREMENT TABS
+// ─────────────────────────────────────────
 function showReq(id, btn) {
   document.querySelectorAll('.req-content').forEach(function(c) { c.classList.remove('active'); });
   document.querySelectorAll('.req-tab').forEach(function(t) { t.classList.remove('active'); });
@@ -1103,7 +1618,9 @@ function showReq(id, btn) {
   if (btn) btn.classList.add('active');
 }
 
-// ── SMOOTH SCROLL ──
+// ─────────────────────────────────────────
+// SMOOTH SCROLL
+// ─────────────────────────────────────────
 document.querySelectorAll('a[href^="#"]').forEach(function(a) {
   a.addEventListener('click', function(e) {
     var href = this.getAttribute('href');
@@ -1118,31 +1635,32 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
   });
 });
 
-// ── HERO PARTICLES (lightweight canvas) ──
+// ─────────────────────────────────────────
+// HERO PARTICLES (canvas)
+// ─────────────────────────────────────────
 (function() {
   var canvas = document.createElement('canvas');
-  canvas.id = 'heroCanvas';
+  canvas.id  = 'heroCanvas';
   canvas.style.cssText = 'position:absolute;inset:0;width:100%;height:100%;pointer-events:none;opacity:0.3;z-index:1';
   var wrap = document.getElementById('heroParticles');
   if (!wrap) return;
   wrap.appendChild(canvas);
-  var ctx = canvas.getContext('2d');
+  var ctx  = canvas.getContext('2d');
   var W, H, particles = [];
 
   function resize() {
-    W = canvas.width = wrap.offsetWidth;
+    W = canvas.width  = wrap.offsetWidth;
     H = canvas.height = wrap.offsetHeight;
   }
   window.addEventListener('resize', resize);
   resize();
 
-  for (var i = 0; i < 60; i++) {
+  for (var i = 0; i < 65; i++) {
     particles.push({
-      x: Math.random() * W,
-      y: Math.random() * H,
-      r: Math.random() * 2 + 0.5,
+      x: Math.random() * W, y: Math.random() * H,
+      r: Math.random() * 2.2 + 0.4,
       dx: (Math.random() - 0.5) * 0.3,
-      dy: -Math.random() * 0.4 - 0.1,
+      dy: -Math.random() * 0.45 - 0.1,
       alpha: Math.random() * 0.6 + 0.2
     });
   }
@@ -1154,8 +1672,7 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
       ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
       ctx.fillStyle = 'rgba(212,175,55,' + p.alpha + ')';
       ctx.fill();
-      p.x += p.dx;
-      p.y += p.dy;
+      p.x += p.dx; p.y += p.dy;
       if (p.y < -10) { p.y = H + 10; p.x = Math.random() * W; }
       if (p.x < -10) p.x = W + 10;
       if (p.x > W + 10) p.x = -10;
@@ -1164,6 +1681,27 @@ document.querySelectorAll('a[href^="#"]').forEach(function(a) {
   }
   draw();
 })();
+
+// ─────────────────────────────────────────
+// CARD HOVER 3D TILT EFFECT
+// ─────────────────────────────────────────
+document.querySelectorAll('.card-item').forEach(function(card) {
+  card.addEventListener('mousemove', function(e) {
+    var rect   = card.getBoundingClientRect();
+    var x      = e.clientX - rect.left;
+    var y      = e.clientY - rect.top;
+    var cx     = rect.width / 2;
+    var cy     = rect.height / 2;
+    var rotX   = ((y - cy) / cy) * -5;
+    var rotY   = ((x - cx) / cx) * 5;
+    var inner  = card.querySelector('.card-item-inner');
+    if (inner) inner.style.transform = 'translateY(-6px) rotateX(' + rotX + 'deg) rotateY(' + rotY + 'deg)';
+  });
+  card.addEventListener('mouseleave', function() {
+    var inner = card.querySelector('.card-item-inner');
+    if (inner) inner.style.transform = '';
+  });
+});
 </script>
 </body>
 </html>
